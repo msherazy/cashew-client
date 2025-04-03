@@ -14,6 +14,7 @@ const __dirname = path.dirname(__filename);
 export default defineConfig({
   preview: {
     port: 8080,
+    allowedHosts: ['cashew-client-bpugd.ondigitalocean.app'],
   },
   plugins: [
     TanStackRouterVite({
