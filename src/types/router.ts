@@ -1,5 +1,4 @@
-// HistoryState registration for typesafety
-
+import { type router } from '@/providers';
 declare module '@tanstack/react-router' {
   interface Register {
     router: typeof router;

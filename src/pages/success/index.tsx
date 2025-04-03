@@ -1,7 +1,7 @@
-import { Text, Button } from '@mantine/core';
+import { Button, Text } from '@mantine/core';
 import { createFileRoute, useNavigate } from '@tanstack/react-router';
+import { CiCircleCheck } from 'react-icons/ci';
 
-import { CiCircleCheck } from "react-icons/ci";
 import { LOCALES } from '@/constants/locales';
 
 const SuccessComponent = () => {
@@ -13,7 +13,7 @@ const SuccessComponent = () => {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-10 px-4 sm:px-10 text-center">
-      <CiCircleCheck size={100} color="green"/>
+      <CiCircleCheck size={100} color="green" />
       <Text size="xl" mb={20}>
         {LOCALES.REGISTRATION_SUCCESSFUL}
       </Text>

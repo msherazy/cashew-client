@@ -1,13 +1,13 @@
 import { Button, Grid, Text, Group } from '@mantine/core';
 import { type FileWithPath } from '@mantine/dropzone';
 import { type FC, useCallback, useEffect, useMemo, useState } from 'react';
-import { FaCircleInfo } from "react-icons/fa6";
+import { FaCircleInfo } from 'react-icons/fa6';
 
 import { Dropzone } from '@/components';
+import { LOCALES } from '@/constants/locales';
 import { useIdBack, useIdFront } from '@/hooks';
 import { type StepProps } from '@/types';
 import { Notification, validateEmiratesId } from '@/utils';
-import { LOCALES } from '@/constants/locales';
 
 export const Step2: FC<StepProps> = ({ form, onNext, onPrev }) => {
   const {
@@ -117,7 +117,6 @@ export const Step2: FC<StepProps> = ({ form, onNext, onPrev }) => {
   );
 
   const handleNext = async () => {
-
     // Check if both front and back files are uploaded
     if (!frontFile || !backFile) {
       Notification.error({
@@ -125,7 +124,6 @@ export const Step2: FC<StepProps> = ({ form, onNext, onPrev }) => {
       });
       return;
     }
-
 
     // Validate both OCR data and file fields
     const isValid = await trigger([

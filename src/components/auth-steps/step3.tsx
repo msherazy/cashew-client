@@ -1,8 +1,8 @@
 import { Button, Card, Grid, Stack, Text, Loader } from '@mantine/core';
 import { type FC } from 'react';
 
-import { type StepProps } from '@/types';
 import { LOCALES } from '@/constants/locales';
+import { type StepProps } from '@/types';
 
 interface Step3Props extends StepProps {
   loading: boolean;

@@ -65,9 +65,7 @@ const RouteComponent = () => {
         allowNextStepsSelect={false}
         size="sm"
         className="w-full"
-        orientation={isMobile
-          ? 'vertical'
-          : 'horizontal'}
+        orientation={isMobile ? 'vertical' : 'horizontal'}
       >
         <Stepper.Step label="First step" description="Registration">
           <Step1 form={form} onNext={onNext} onPrev={onPrev} />

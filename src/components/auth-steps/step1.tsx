@@ -1,13 +1,13 @@
 import { Button, Grid, Text } from '@mantine/core';
 import { useNavigate } from '@tanstack/react-router';
+import { type AxiosError } from 'axios';
 import { type FC } from 'react';
 
 import { Input } from '@/components';
+import { LOCALES } from '@/constants/locales';
 import { AuthService } from '@/services';
 import { type StepProps } from '@/types';
 import { Notification } from '@/utils';
-import { LOCALES } from '@/constants/locales';
-import { AxiosError } from 'axios';
 
 export const Step1: FC<StepProps> = ({ form, onNext }) => {
   const { control, trigger, getValues } = form;
@@ -39,7 +39,7 @@ export const Step1: FC<StepProps> = ({ form, onNext }) => {
           onNext();
         }
       } catch (error) {
-        const {response} = error as AxiosError;
+        const { response } = error as AxiosError;
         if (response && response.status === 404) {
           onNext();
         } else {

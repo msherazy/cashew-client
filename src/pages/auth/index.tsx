@@ -6,10 +6,10 @@ import {
 } from '@tanstack/react-router';
 import { useEffect, useState } from 'react';
 
+import { LOCALES } from '@/constants/locales';
 import { AuthService } from '@/services';
 import { type UserData } from '@/types/user';
 import { Notification } from '@/utils';
-import { LOCALES } from '@/constants/locales';
 
 const UserDetailComponent = () => {
   // extract data from router state
@@ -46,7 +46,9 @@ const UserDetailComponent = () => {
   if (loading)
     return <Loader className="items-center content-center text-center" />;
   if (!userData)
-    return <Text className="text-center mt-8">{LOCALES.NO_USER_DATA_FOUND}</Text>;
+    return (
+      <Text className="text-center mt-8">{LOCALES.NO_USER_DATA_FOUND}</Text>
+    );
 
   const {
     name,
