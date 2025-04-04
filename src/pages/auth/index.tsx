@@ -1,4 +1,16 @@
-import { Text, Card, Image, Stack, Loader, Button } from '@mantine/core';
+import {
+  Text,
+  Card,
+  Image,
+  Stack,
+  Loader,
+  Button,
+  Group,
+  Avatar,
+  Box,
+  LoadingOverlay,
+  Grid,
+} from '@mantine/core';
 import {
   createFileRoute,
   useNavigate,
@@ -12,13 +24,14 @@ import { type UserData } from '@/types/user';
 import { Notification } from '@/utils';
 
 const UserDetailComponent = () => {
-  // extract data from router state
   const state = useRouterState({
     select: (s) => s.location.state?.userData,
   });
   const navigate = useNavigate();
   const [userData, setUserData] = useState<UserData | null>(null);
   const [loading, setLoading] = useState(true);
+  const [frontImageLoading, setFrontImageLoading] = useState(true);
+  const [backImageLoading, setBackImageLoading] = useState(true);
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -45,6 +58,7 @@ const UserDetailComponent = () => {
 
   if (loading)
     return <Loader className="items-center content-center text-center" />;
+
   if (!userData)
     return (
       <Text className="text-center mt-8">{LOCALES.NO_USER_DATA_FOUND}</Text>
@@ -60,66 +74,107 @@ const UserDetailComponent = () => {
   } = userData.data;
 
   return (
-    <div className="container mx-auto p-4">
-      <Button
-        onClick={() => navigate({ to: '/' })}
-        variant="outline"
-        className="mb-4"
-      >
-        {LOCALES.BACK_TO_REGISTRATION}
-      </Button>
-      <Card shadow="sm" p="md" className="mx-auto">
-        <Stack>
-          <Text size="md" fw={500}>
-            {LOCALES.NAME}:
+    <Grid className="container w-full max-w-screen-xl flex flex-col gap-5 items-center justify-center py-10 px-4 sm:px-10">
+      <Grid.Col>
+        <Card shadow="sm" p="md" className="mx-auto mb-4">
+          <Stack>
+            <Group align="start">
+              <Avatar radius="xl" color="blue">
+                {name?.charAt(0).toUpperCase()}
+              </Avatar>
+              <Stack>
+                <Text size="lg" fw={500}>
+                  {name}
+                </Text>
+                <Text size="sm" c="dimmed">
+                  {userEmail}
+                </Text>
+                <Text size="sm" c="dimmed">
+                  {`+971 ${mobile}`}
+                </Text>
+              </Stack>
+            </Group>
+          </Stack>
+        </Card>
+
+        <Card shadow="sm" p="md" className="mx-auto">
+          <Text size="lg" fw={500} mb="md">
+            {LOCALES.ID_INFORMATION}
           </Text>
-          <Text c="dimmed">{name}</Text>
-          <Text size="md" fw={500}>
-            {LOCALES.EMAIL}:
-          </Text>
-          <Text c="dimmed">{userEmail}</Text>
-          <Text size="md" fw={500}>
-            {LOCALES.PHONE}:
-          </Text>
-          <Text c="dimmed">{`+971 ${mobile}`}</Text>
-        </Stack>
-        {idImages && (
-          <>
-            <Text size="lg" fw={500} mt={15} mb={10}>
-              {LOCALES.ID_INFORMATION}
-            </Text>
-            <Stack>
+          <Group align="start">
+            <Stack gap="xs" className="flex-1">
               <Text size="md" fw={500}>
-                {LOCALES.EMIRATES_ID}:
+                {LOCALES.EMIRATES_ID}
               </Text>
-              <Text c="dimmed">{emiratesIdNumber}</Text>
+              <Text size="sm" c="dimmed">
+                {emiratesIdNumber}
+              </Text>
               <Text size="md" fw={500}>
-                {LOCALES.FULL_NAME}:
+                {LOCALES.COMPLETE_NAME}
               </Text>
-              <Text c="dimmed">{emiratesIdName}</Text>
-              <div>
-                <div className="flex gap-4 mb-2">
-                  <Text size="md" fw={500} className="flex-1 text-center">
+              <Text size="sm" c="dimmed">
+                {emiratesIdName}
+              </Text>
+              <Group>
+                <Stack>
+                  <Text size="sm" fw={500}>
                     {LOCALES.ID_FRONT}
                   </Text>
-                  <Text size="md" fw={500} className="flex-1 text-center">
+                  <Box pos="relative">
+                    <LoadingOverlay
+                      visible={frontImageLoading}
+                      zIndex={1000}
+                      overlayProps={{ radius: 'sm', blur: 2 }}
+                    />
+                    <Image
+                      radius="md"
+                      h={200}
+                      w="100%"
+                      fit="contain"
+                      fallbackSrc="https://placehold.co/300x200?text=Image Not Available"
+                      src={idImages?.front?.url}
+                      alt={LOCALES.ID_FRONT}
+                      onLoad={() => setFrontImageLoading(false)}
+                    />
+                  </Box>
+                </Stack>
+                <Stack>
+                  <Text size="sm" fw={500}>
                     {LOCALES.ID_BACK}
                   </Text>
-                </div>
-                <div className="flex gap-4">
-                  <div className="flex-1">
-                    <Image src={idImages.front.url} alt={idImages.front.name} />
-                  </div>
-                  <div className="flex-1">
-                    <Image src={idImages.back.url} alt={idImages.back.name} />
-                  </div>
-                </div>
-              </div>
+                  <Box pos="relative">
+                    <LoadingOverlay
+                      visible={backImageLoading}
+                      zIndex={1000}
+                      overlayProps={{ radius: 'sm', blur: 2 }}
+                    />
+                    <Image
+                      radius="md"
+                      h={200}
+                      w="100%"
+                      fit="contain"
+                      fallbackSrc="https://placehold.co/300x200?text=Image Not Available"
+                      src={idImages?.back?.url}
+                      alt={LOCALES.ID_BACK}
+                      onLoad={() => setBackImageLoading(false)}
+                    />
+                  </Box>
+                </Stack>
+              </Group>{' '}
             </Stack>
-          </>
-        )}
-      </Card>
-    </div>
+          </Group>
+        </Card>
+      </Grid.Col>
+      <Grid.Col>
+        <Button
+          fullWidth
+          onClick={() => navigate({ to: '/' })}
+          className="mb-4"
+        >
+          {LOCALES.BACK_TO_REGISTRATION}
+        </Button>
+      </Grid.Col>
+    </Grid>
   );
 };
 

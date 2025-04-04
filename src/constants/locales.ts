@@ -1,17 +1,17 @@
 export const LOCALES = {
-  REVIEW_YOUR_INFORMATION: 'Review Your Information',
+  REVIEW_YOUR_INFORMATION: 'Review your information',
   NAME: 'Name',
   EMAIL: 'Email',
   PHONE: 'Phone',
-  EMIRATES_ID: 'Emirates ID',
-  FULL_NAME: 'Full Name',
+  EMIRATES_ID: 'ID Number',
+  COMPLETE_NAME: 'ID Name',
   GO_BACK: 'Go Back',
   SUBMIT: 'Submit',
   COMPLETED: 'Completed, click back button to get to previous step',
   BACK_TO_REGISTRATION: 'Back to Registration',
   NO_USER_DATA_FOUND: 'No user data found',
   FAILED_TO_FETCH_USER_DATA: 'Failed to fetch user data',
-  ID_INFORMATION: 'ID Information',
+  ID_INFORMATION: 'Emirates ID Information',
   ID_FRONT: 'ID Front',
   ID_BACK: 'ID Back',
   REGISTRATION_SUCCESSFUL: 'Registration Successful!',
@@ -30,5 +30,5 @@ export const LOCALES = {
     'The uploaded front and back sides belong to different IDs. Please check your documents and try again.',
   NEED_TO_UPLOAD_DOCUMENT: 'Need to upload document to continue',
   EID_DOCUMENT_REQUIREMENT_MESSAGE:
-    'Please upload the front and back sides of your Emirates ID as an image formats. Ensure the images are clear and legible for verification purposes.',
+    'Please upload clear and legible front and back side images of your Emirates ID.',
 };
