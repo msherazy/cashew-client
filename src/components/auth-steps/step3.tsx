@@ -43,7 +43,7 @@ export const Step3: FC<Step3Props> = ({
             </Text>
             <Text c="dimmed">{idFrontData.number}</Text>
             <Text size="md" fw={500}>
-              {LOCALES.FULL_NAME}:
+              {LOCALES.COMPLETE_NAME}:
             </Text>
             <Text c="dimmed">{idFrontData.name}</Text>
           </Stack>
