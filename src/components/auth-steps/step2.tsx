@@ -1,7 +1,6 @@
-import { Button, Grid, Text, Group } from '@mantine/core';
+import { Button, Grid, Text } from '@mantine/core';
 import { type FileWithPath } from '@mantine/dropzone';
 import { type FC, useCallback, useEffect, useMemo, useState } from 'react';
-import { FaCircleInfo } from 'react-icons/fa6';
 
 import { Dropzone } from '@/components';
 import { LOCALES } from '@/constants/locales';
@@ -171,12 +170,9 @@ export const Step2: FC<StepProps> = ({ form, onNext, onPrev }) => {
   return (
     <Grid gutter="xl">
       <Grid.Col span={12}>
-        <Group align="center" mt={'xl'}>
-          <FaCircleInfo size={16} />
-          <Text size={'xs'} className="text-left">
-            {LOCALES.EID_DOCUMENT_REQUIREMENT_MESSAGE}
-          </Text>
-        </Group>
+        <Text size={'xs'} mt={'xl'}>
+          {LOCALES.EID_DOCUMENT_REQUIREMENT_MESSAGE}
+        </Text>
       </Grid.Col>
       <Grid.Col span={{ base: 12, sm: 6 }}>
         <Dropzone

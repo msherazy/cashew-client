@@ -36,8 +36,6 @@ const RouteComponent = () => {
     try {
       const response = await AuthService.register(data);
       if (response.success) {
-        Notification.success({ message: response.message });
-        // using this hook for smooth navigation to success page
         startTransition(() => {
           navigate({ to: '/success' });
         });

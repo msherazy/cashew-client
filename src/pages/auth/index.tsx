@@ -131,8 +131,8 @@ const UserDetailComponent = () => {
                       h={200}
                       w="100%"
                       fit="contain"
-                      fallbackSrc="https://placehold.co/text=Image Not Available"
-                      src={idImages.front.url}
+                      fallbackSrc="https://placehold.co/300x200?text=Image Not Available"
+                      src={idImages?.front?.url}
                       alt={LOCALES.ID_FRONT}
                       onLoad={() => setFrontImageLoading(false)}
                     />
@@ -153,8 +153,8 @@ const UserDetailComponent = () => {
                       h={200}
                       w="100%"
                       fit="contain"
-                      fallbackSrc="https://placehold.co/180x200?text=Image Not Available"
-                      src={idImages.back.url}
+                      fallbackSrc="https://placehold.co/300x200?text=Image Not Available"
+                      src={idImages?.back?.url}
                       alt={LOCALES.ID_BACK}
                       onLoad={() => setBackImageLoading(false)}
                     />

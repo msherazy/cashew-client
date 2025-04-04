@@ -1,5 +1,5 @@
 export const LOCALES = {
-  REVIEW_YOUR_INFORMATION: 'Review Your Information',
+  REVIEW_YOUR_INFORMATION: 'Review your information',
   NAME: 'Name',
   EMAIL: 'Email',
   PHONE: 'Phone',
@@ -30,5 +30,5 @@ export const LOCALES = {
     'The uploaded front and back sides belong to different IDs. Please check your documents and try again.',
   NEED_TO_UPLOAD_DOCUMENT: 'Need to upload document to continue',
   EID_DOCUMENT_REQUIREMENT_MESSAGE:
-    'Please upload the front and back sides of your Emirates ID as an image formats. Ensure the images are clear and legible for verification purposes.',
+    'Please upload clear and legible front and back side images of your Emirates ID.',
 };
