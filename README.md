@@ -1,4 +1,5 @@
 # Cashew Client
+
 Cashew Client is a web application built with React + TypeScript + Vite, designed to provide a seamless user experience for managing personal information and documents. The application is hosted on DigitalOcean and the source code is available on GitHub.
 
 ## Live Demo
@@ -35,22 +36,29 @@ The source code for this project is available on GitHub. You can find it [here](
 To run this project locally, follow these steps:
 
 1. Clone the repository:
-    ```sh
-    git clone https://github.com/msherazy/cashew-client.git
-    cd cashew-client
-    ```
+
+   ```sh
+   git clone https://github.com/msherazy/cashew-client.git
+   cd cashew-client
+   ```
 
 2. Install dependencies:
-    ```sh
-    yarn install
-    ```
+   ```sh
+   yarn install
+   ```
+3. Create a `.env` file in the root directory and add the following environment variables:
 
-3. Start the development server:
-    ```sh
-    yarn dev
-    ```
+   ```dotenv
+   VITE_API_URL=http://localhost:8080/api/v1
+   ```
 
-4. Open your browser and navigate to `http://localhost:5173`.
+4. Start the development server:
+
+   ```sh
+   yarn dev
+   ```
+
+5. Open your browser and navigate to `http://localhost:5173`.
 
 ## Scripts
 
