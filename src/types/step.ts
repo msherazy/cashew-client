@@ -7,3 +7,8 @@ export type StepProps = {
   onNext: () => void;
   onPrev: () => void;
 };
+
+export interface Step3Props extends StepProps {
+  loading: boolean;
+  onSubmitHandler: () => void;
+}

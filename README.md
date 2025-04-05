@@ -1,5 +1,5 @@
 # Cashew Client
-Cashew Client is a web application built with React and TypeScript, designed to provide a seamless user experience for managing personal information and documents. The application is hosted on DigitalOcean and the source code is available on GitHub.
+Cashew Client is a web application built with React + TypeScript + Vite, designed to provide a seamless user experience for managing personal information and documents. The application is hosted on DigitalOcean and the source code is available on GitHub.
 
 ## Live Demo
 
@@ -11,9 +11,14 @@ The source code for this project is available on GitHub. You can find it [here](
 
 ## Features
 
-- User authentication and profile management
+- User authentication and registration
 - Upload and display of Emirates ID front and back images
-- Review and edit personal information
+- OCR for extracting text from images [Emirates IDs]
+- Emirates IDs validation based on a custom score implementation
+- Review personal information before submission
+- Success page to confirm successful submission
+- Error handling and notifications
+- User existence check before registration based on Phone Number and email
 - Responsive design for various screen sizes
 
 ## Technologies Used
@@ -23,7 +28,7 @@ The source code for this project is available on GitHub. You can find it [here](
 - **Vite**: A build tool that provides a faster and leaner development experience for modern web projects
 - **Mantine**: A React component library with a focus on usability and accessibility
 - **Yarn**: A package manager that doubles down as a project manager
-- **DigitalOcean**: Cloud infrastructure provider for hosting the application
+- **DigitalOcean**: Cloud infrastructure provider for hosting the application [Free tier]
 
 ## Installation
 
@@ -132,3 +137,4 @@ To run this project locally, follow these steps:
 ├── tsconfig.node.json
 ├── vite.config.ts
 └── yarn.lock
+```
