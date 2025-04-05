@@ -4,6 +4,7 @@ import { useState, useTransition, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 
 import { Step1, Step2, Step3 } from '@/components';
+import { LOCALES } from '@/constants';
 import { AuthSchema } from '@/schema';
 import { AuthService } from '@/services';
 import { Notification } from '@/utils';
@@ -65,13 +66,22 @@ const RouteComponent = () => {
         className="w-full"
         orientation={isMobile ? 'vertical' : 'horizontal'}
       >
-        <Stepper.Step label="First step" description="Registration">
+        <Stepper.Step
+          label={LOCALES.STEPPER_STEP1_LABEL}
+          description={LOCALES.STEPPER_STEP1_DESCRIPTION}
+        >
           <Step1 form={form} onNext={onNext} onPrev={onPrev} />
         </Stepper.Step>
-        <Stepper.Step label="Second step" description="Documents">
+        <Stepper.Step
+          label={LOCALES.STEPPER_STEP2_LABEL}
+          description={LOCALES.STEPPER_STEP2_DESCRIPTION}
+        >
           <Step2 form={form} onNext={onNext} onPrev={onPrev} />
         </Stepper.Step>
-        <Stepper.Step label="Final step" description="Confirmation">
+        <Stepper.Step
+          label={LOCALES.STEPPER_STEP3_LABEL}
+          description={LOCALES.STEPPER_STEP3_DESCRIPTION}
+        >
           <Step3
             form={form}
             onNext={onNext}

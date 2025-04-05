@@ -1,4 +1,10 @@
 export const LOCALES = {
+  STEPPER_STEP1_LABEL: 'First step',
+  STEPPER_STEP2_LABEL: 'Second step',
+  STEPPER_STEP3_LABEL: 'Final step',
+  STEPPER_STEP1_DESCRIPTION: 'User Information',
+  STEPPER_STEP2_DESCRIPTION: 'Documents',
+  STEPPER_STEP3_DESCRIPTION: 'Confirmation',
   REVIEW_YOUR_INFORMATION: 'Review your information',
   NAME: 'Name',
   EMAIL: 'Email',

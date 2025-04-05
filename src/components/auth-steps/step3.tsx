@@ -14,12 +14,7 @@ import {
 import { type FC, useState } from 'react';
 
 import { LOCALES } from '@/constants/locales';
-import { type StepProps } from '@/types';
-
-interface Step3Props extends StepProps {
-  loading: boolean;
-  onSubmitHandler: () => void;
-}
+import { type Step3Props } from '@/types';
 
 export const Step3: FC<Step3Props> = ({
   form,
@@ -39,9 +34,6 @@ export const Step3: FC<Step3Props> = ({
     idFront,
     idBack,
   } = getValues();
-
-  console.log('Data: ', getValues());
-
   return (
     <Grid gutter="xl">
       <Grid.Col span={12}>
